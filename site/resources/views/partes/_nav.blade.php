@@ -50,7 +50,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Área restrita <span class="caret">
           <ul class="dropdown-menu">
             <li><a href="{{ route('login') }}">Login</a></li>
-           <!-- <li><a href="{{ route('register') }}">Registrar</a></li>-->
+           
           </ul>
           </span></a>
          @else
@@ -66,9 +66,7 @@
             <li role="separator" class="divider"></li>
            
                 <li>
-                  <a href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
+                  <a href="{{ route('logout') }}">
                   Logout
                 </a>
 

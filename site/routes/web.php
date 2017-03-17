@@ -35,13 +35,23 @@ Route::group(['middleware'=>['web']], function(){
 	Route::resource('/slides','SlidesController', ['only'=>['index','show','destroy','store']]);
 	Route::get('/pacotes/cursos','PagesController@getPacotes');
 	Route::get('/success-contact', 'PagesController@getSuccess_contact');
-	Auth::routes(['except'=>['reset']]);
-        Route::get('/googledf4c6f4124a56153.html',function(){
-             return ('google-site-verification: googledf4c6f4124a56153.html');
-         });
 
     Route::get('notfound',['as'=>'notfound','uses'=>'PagesController@getNotfound']
 	);
+	//rotas manuais de Auth
+	Route::get('login',['as'=>'login','uses'=> 'Auth\LoginController@showLoginForm']
+	);
+
+	Route::post('login',['as'=>'login','uses'=> 'Auth\LoginController@login']
+	);
+
+	Route::post('password/reset',['as'=>'password.reset','uses'=>'Auth\ResetPasswordController@reset']
+	);
+
+	Route::get('password/reset', ['as'=>'password.request','uses'=>'Auth\ResetPasswordController@showLinkRequestForm']);
+	
+	Route::get('sair',['as'=>'logout','uses'=>'Auth\LoginController@logout']
+		);
 });
 
     
