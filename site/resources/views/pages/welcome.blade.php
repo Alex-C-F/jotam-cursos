@@ -5,7 +5,17 @@
 <style type="text/css">
 
    @import url(http://fonts.googleapis.com/css?family=Anaheim);
+ #propaganda{
+    display:inline-block;
+    position:fixed;
+    top:25%;
+    left:auto%;
+    padding:10px;
+    border:1px solid #d0d0d0;
+    z-index: 9999;
+    text-align: right;
 
+    }
 .body{
     margin: 0% auto;
     width: 210px;
@@ -50,10 +60,6 @@ p{
 img{
     cursor: pointer;
     transition: all .5s ease;
-}
-img:hover{
-    -webkit-filter: grayscale(0);
-  transform: scale(1.2,1.2);
 }
 
 @keyframes rotation{
@@ -260,7 +266,7 @@ img:hover{
 <hr>
 <!-- Slide Rotaciona-->
 <div class="container">
-   <div class="body">
+   <div  class="body">
         <div id="carousel">
             @foreach ($cursos as $curso)
             <figure><a href="{{route('cursos_slug.single',$curso->slug)}}"><img src="{{asset('site/public/imagens/'.$curso->imagem)}}" height="100" width="240" alt=""></a></figure>
@@ -268,6 +274,10 @@ img:hover{
 
         </div>
     </div>
+    <div id="propaganda" class="row">
+            <a href="#" onclick="document.getElementById('propaganda').style.display='none';">[Fechar]</a>
+            <a href="pacotes/cursos"><img class="img-responsive" src="{{asset('images/'.'banner1.jpg')}}"  height="600" width="300"/></a>
+    </div> 
 </div>
 
 <hr>
