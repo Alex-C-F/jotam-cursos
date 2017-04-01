@@ -249,14 +249,17 @@ img{
   
 </div><!--Fim col-md-8-->
 <div class="col-md-3 col-md-offset-1">
-   <h2>Mais informações</h2>
+
+   <h3>Mais informações</h3>
    <ul >
         <li><a class="btn-spacing-top btn btn-primary btn-block" href="{{route('cursos_slug.index')}}">Cursos</a></li>
        <li><a class="btn-spacing-top btn btn-primary btn-block" href="\pacotes\cursos">Pacotes de Cursos</a></li>
         <li><a class="btn-spacing-top btn btn-primary btn-block" href="http://web.arapiraca.al.gov.br/vagas-do-sine/" target="_blank">Vagas Sine</a></li>
         <li><a class="btn-spacing-top btn btn-primary btn-block" href="\fotos">Galeria de fotos</a></li>
     </ul>
-
+    <br>
+    <hr>
+    <!-- Widget Previs&atilde;o de Tempo CPTEC/INPE --><iframe allowtransparency="true" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" src="http://www.cptec.inpe.br/widget/widget.php?p=574&w=h&c=748ccc&f=ffffff" height="200px" width="215px"></iframe><noscript>Previs&atilde;o de <a href="http://www.cptec.inpe.br/cidades/tempo/574">Arapiraca/AL</a> oferecido por <a href="http://www.cptec.inpe.br">CPTEC/INPE</a></noscript><!-- Widget Previs&atilde;o de Tempo CPTEC/INPE -->
 </div>
 
 </div><!--Fim row--><!--Fim row-->
