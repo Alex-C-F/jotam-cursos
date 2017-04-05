@@ -2,6 +2,7 @@
 
 @section('title',"| $curso->nome")
 
+</style>
 
 @section('content')
 	<div class="row">

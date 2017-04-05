@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
                     return redirect('notfound');
                     break;
                 default:
-                    return $this->renderHttpException($e);
+                    return $this->renderHttpException($exception);
                     break;
             }
             

@@ -8,8 +8,8 @@ use App\Galeria;
 use App\Curso;
 use Mail;
 use Session;
-use App\Slide;
 use App\Categoria;
+use Illuminate\Support\Facades\DB;
 
 class PagesController extends Controller
 {
@@ -17,9 +17,8 @@ class PagesController extends Controller
 	public function getIndex(){
 		//$posts = new Post();
 		$cursos = Curso::orderBy('created_at','des')->paginate(10);
-		$slides = Slide::all();
 		$posts = Post::orderBy('created_at','des')->paginate(10);
-		return view('pages.welcome')->withPosts($posts)->withCursos($cursos)->withSlides($slides);
+		return view('pages.welcome')->withPosts($posts)->withCursos($cursos);
 	}
 	
 	public function getAbout(){
@@ -91,10 +90,44 @@ class PagesController extends Controller
 
 		return redirect('/');
 	}
-	//Hello, this is a snippet.
+	//Hello, this is a 
 	public function getNotfound()
 	{
 	   return view('error.notfound');
+	}
+
+	public function getSearchPacote(Request $request){
+		$this->validate($request, array(
+			'busca' => 'required|min:5'
+		));
+		$busca = $request->busca;
+		$result = DB::table('categorias')->where('nome',$busca)->first(); 
+		if ($result == '') {
+			Session::flash('danger','Pacote não encontrado!');
+			return redirect('/pacotes/cursos');
+		}
+		else
+		{
+			return view('pages.search-pacote')->withPacote($result);
+		}
+		
+	}
+
+	public function getSearchCurso(Request $request){
+		$this->validate($request, array(
+			'busca' => 'required|min:5'
+		));
+		$busca = $request->busca;
+		$result = DB::table('cursos')->where('nome',$busca)->first(); 
+		if ($result == '') {
+			Session::flash('danger','Curso não encontrado!');
+			return redirect('/cursos-index');
+		}
+		else
+		{
+			return view('pages.search-curso')->withCurso($result);
+		}
+		
 	}
 
 }

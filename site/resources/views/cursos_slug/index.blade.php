@@ -4,11 +4,56 @@
 
 @section('content')
 <style type="text/css">
-	
+#search {
+    float: right;
+    margin-top: 9px;
+    width: 250px;
+}
+
+.search {
+    padding: 5px 0;
+    width: 230px;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    float: right;
+    line-height: 22px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+}
+
+    .search input {
+        position: absolute;
+        width: 0px;
+        float: left;
+        margin-left: 210px;
+        -webkit-transition: all 0.7s ease-in-out;
+        -moz-transition: all 0.7s ease-in-out;
+        -o-transition: all 0.7s ease-in-out;
+        transition: all 0.7s ease-in-out;
+        height: 30px;
+        line-height: 18px;
+        padding: 0 2px 0 2px;
+        border-radius:1px;
+    }
+
+        .search:hover input, .search input:focus {
+            width: 200px;
+            margin-left: 20px;
+        }
+
+.btn {
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 5px;
+    border-radius:1px;
+}	
 body {
   margin: 0px;
   padding: 0px;
 }
+
 
 	.cuadro_intro_hover{
         padding: 0px;
@@ -60,7 +105,18 @@ body {
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
  <div class="row text-center">
  	<h3>Cursos básicos e profissionalizantes</h3>
+ 	<div class="row text-center">
+ 	 <form action="{{url('curso-search')}}" >
+ 	<div class="form-group">
+		<div class="search">
+			<input type="text" name="busca" class="form-control input-sm" maxlength="64" placeholder="Buscar Curso" />
+
+			<button type="submit" class="btn btn-primary btn-sm">Buscar</>
+		</div>
+	 </form>
+	 </div>
  </div>
+ 
  <hr>
 
  @foreach ($cursos as $curso)
@@ -75,7 +131,7 @@ body {
 					<div class="caption-text">
 						<h3 style="border-top:2px solid white; border-bottom:2px solid white; padding:10px;">{{$curso->nome}}</h3>
 						<p>{{ substr(strip_tags($curso->descricao),0,200)}}{{strlen(strip_tags($curso->descricao)) > 200 ? "..." : ""}}</p>
-						<a class=" btn btn-primary" href="{{route('cursos_slug.single', $curso->slug)}}">Leia mais</a>
+						<a style="position: relative;" class=" btn btn-primary" href="{{route('cursos_slug.single', $curso->slug)}}">Leia mais</a>
 					</div>
 				</div>
 			</div>

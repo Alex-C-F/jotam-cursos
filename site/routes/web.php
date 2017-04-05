@@ -13,6 +13,7 @@
 
 
 Route::group(['middleware'=>['web']], function(){
+
 	Route::get('informacoes/{slug}',['as' => 'informacao.single', 'uses' => 'BlogController@getSingle'])
 		->where('informacoes','[\w\d\-\_]+');
 	Route::get('informacoes',['uses'=>'BlogController@getIndex','as'=>'informacao.index']);
@@ -22,6 +23,11 @@ Route::group(['middleware'=>['web']], function(){
 		->where('cursos_slug','[\w\d\-\_]+');
 	//faz o filtro de modulos por categoria
 	Route::get('cursos-modulos/{nome}',['as' => 'pages.modulos','uses' =>'PagesController@getModulos']);
+	//faz a busca da categoria solicitada pelo usuario searchgetSerchPacote
+	Route::get('/pacote-search','PagesController@getSearchPacote');
+	Route::get('/curso-search','PagesController@getSearchCurso');
+	//faz a busca do curso solicitado pelo usuario searchgetSerchCurso
+
 	Route::get('cursos-index',['uses'=>'Cursos_slugController@getIndex','as'=>'cursos_slug.index']);
 	Route::get('/fotos', 'PagesController@getGaleria');
 	Route::get('/','PagesController@getIndex');

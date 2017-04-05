@@ -16,6 +16,13 @@
     text-align: right;
 
     }
+
+ .col-md-12{
+    border:1px solid #d0d0d0;
+ }
+ .col-md-offset-1{
+    border:1px solid #d0d0d0;
+ }       
 .body{
     margin: 0% auto;
     width: 210px;
@@ -248,9 +255,13 @@ img{
     </div>
   
 </div><!--Fim col-md-8-->
+    <br>
+    <br>
+    <h3 class="text-center">Mais informações</h3>
+    <br>
 <div class="col-md-3 col-md-offset-1">
 
-   <h3>Mais informações</h3>
+   
    <ul >
         <li><a class="btn-spacing-top btn btn-primary btn-block" href="{{route('cursos_slug.index')}}">Cursos</a></li>
        <li><a class="btn-spacing-top btn btn-primary btn-block" href="\pacotes\cursos">Pacotes de Cursos</a></li>
