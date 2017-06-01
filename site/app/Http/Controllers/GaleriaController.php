@@ -35,7 +35,8 @@ class GaleriaController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
-            'file_image' => 'sometimes|image'
+            'file_image' => 'sometimes|image',
+            'legenda'=>'required|min:10'
             ));
         $galeria = new Galeria();
         if ($request->hasFile('file_image')) {
@@ -45,6 +46,7 @@ class GaleriaController extends Controller
             Image::make($image)->resize(800,400)->save($local);
             $galeria->url = $nomeImagem;
         }
+        $galeria->legenda = request('legenda');
         $galeria->save();
         Session::flash('success', 'Dados salvos com sucesso!');
         return redirect()->route('galerias.index',$galeria->id);

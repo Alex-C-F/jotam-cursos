@@ -17,6 +17,10 @@
 				<label>Última atualização:</label>
 				<label>{{date('M j, Y H:i', strtotime($galeria->updated_at))}}</label>
 			</dl>
+			<dl class="dl-horizontal">
+				<label>Legenda:</label>
+				<label>{{$galeria->legenda}}</label>
+			</dl>
 			<hr>
 			<div class="row">
 				
@@ -29,7 +33,7 @@
 				</div>
 				<hr>
 				<div class="col-sm-12">
-					{!! Html::linkRoute('galerias.index', '<< Ver todos os galeriaegorias',null,array('class'=>'btn btn-primary btn-block')) !!}					
+					{!! Html::linkRoute('galerias.index', '<< Voltar',null,array('class'=>'btn btn-primary btn-block')) !!}					
 				</div>
 			</div>
 		</div>

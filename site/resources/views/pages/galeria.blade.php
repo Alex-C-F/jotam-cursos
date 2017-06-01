@@ -7,7 +7,7 @@
 {!! Html::style('css/style.css') !!}
 {!! Html::style('css/elastislide.css') !!}
 
-@section('title','|Galeria')
+@section('title ','| Galeria')
 @section('content')
 	
 		<style type="text/css">
@@ -83,13 +83,13 @@
 						<!-- Elastislide Carousel Thumbnail Viewer -->
 						<div class="es-carousel-wrapper">
 							<div class="es-nav">
-								<span class="es-nav-prev">Previous</span>
-								<span class="es-nav-next">Next</span>
+								<span class="es-nav-prev">Próxima</span>
+								<span class="es-nav-next">Anterior</span>
 							</div>
 							<div class="es-carousell">
 								<ul>
 									@foreach ($galerias as $galeria)
-									<li><a href="#"><img src="{{asset('site/public/imagens/' . $galeria->url)}}" data-large="{{asset('site/public/imagens/' . $galeria->url)}}" alt="image01" data-description="From off a hill whose concave womb reworded" height="65" width="65" /></a></li>
+									<li><a href="#"><img src="{{asset('site/public/imagens/' . $galeria->url)}}" data-large="{{asset('site/public/imagens/' . $galeria->url)}}" alt="image01" data-description= "{{$galeria->legenda}}" height="65" width="65" /></a></li>
 									@endforeach
 								</ul>
 							</div>

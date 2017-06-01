@@ -11,8 +11,10 @@
         <!-- Criando o form para cadastro com collective-->
         {{ Form::label('selecione:','Selecione a imagem:') }}
         {{ Form::File('file_image',['class'=>'form-control','required'=>''])}}
+        {{Form::label('legenda:', 'Escreva a legenda')}}
+        {{Form::text('legenda',null,['required'=>''])}}
 
-        {{Form::submit('Nova', array('class'=>'btn btn-primary btn-block', 'style'=> 'margin-top:20px;'))}}
+        {{Form::submit('Adicionar', array('class'=>'btn btn-primary btn-block', 'style'=> 'margin-top:20px;'))}}
         {!! Form::close() !!}
       </div>
        
